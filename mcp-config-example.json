@@ -1,0 +1,15 @@
+{
+  "_comment_claude_desktop": "Add this under mcpServers in claude_desktop_config.json (macOS: ~/Library/Application Support/Claude/claude_desktop_config.json, Windows: %APPDATA%/Claude/claude_desktop_config.json)",
+  "_comment_cursor": "Add the same entry under mcpServers in Cursor's mcp.json (Cursor Settings > MCP)",
+
+  "mcpServers": {
+    "shared-memory": {
+      "command": "java",
+      "args": ["-jar", "/Users/ayushbhaskarsingh/Desktop/untitled folder/shared-memory-mcp/target/shared-memory-mcp.jar"],
+      "env": {
+        "GEMINI_API_KEY": "AIzaSyA4Z6c9raGN1JjpJIALB3OqTiBa28IDyMI",
+        "SHARED_MEMORY_HOME": "/Users/ayushbhaskarsingh/Desktop/untitled folder/shared-memory-mcp"
+      }
+    }
+  }
+}
