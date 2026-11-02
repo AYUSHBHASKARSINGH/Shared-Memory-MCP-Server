@@ -6,3 +6,4 @@ target/
 .shared-memory-mcp/
 .DS_Store
 dependency-reduced-pom.xml
+mcp-config-example.json

@@ -10,19 +10,7 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.Map;
 
-/**
- * Calls Gemini's gemini-embedding-001 endpoint. Requires a GEMINI_API_KEY.
- * Swap this out for a local embedding model if you want the whole server to
- * run offline -- the rest of the codebase only depends on the
- * EmbeddingService interface.
- *
- * NOTE: this replaces text-embedding-004, which Google fully shut down on
- * January 14, 2026. gemini-embedding-001 defaults to a 3072-dimension
- * output; this class requests 768 via outputDimensionality so it matches
- * the Lucene vector field size the rest of the project assumes. If you
- * change DIMENSIONS, the Lucene index must be rebuilt from scratch --
- * existing vectors won't be the right length anymore.
- */
+
 public class GeminiEmbeddingService implements EmbeddingService {
 
     private static final String ENDPOINT =

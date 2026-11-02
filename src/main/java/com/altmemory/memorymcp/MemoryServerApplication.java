@@ -16,17 +16,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-/**
- * Entry point for the shared memory MCP server. Runs over stdio so it can be
- * launched as a subprocess by Claude Desktop and Cursor alike -- both see
- * the same SQLite DB and Lucene index on disk, which is what makes the
- * memory "shared" across tools rather than per-process.
- *
- * IMPORTANT: nothing in this process may write to System.out. The MCP
- * stdio transport uses stdout as the JSON-RPC message channel; stray
- * println/logging output there will corrupt every message after it. All
- * logging is routed to stderr (see slf4j-simple config in resources).
- */
 public class MemoryServerApplication {
 
     public static void main(String[] args) throws Exception {

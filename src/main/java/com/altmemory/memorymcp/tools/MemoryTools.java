@@ -14,18 +14,6 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-/**
- * Builds the SyncToolSpecifications wired into the MCP server. Each tool
- * handler is intentionally small: parse arguments, call into
- * MetadataStore/VectorIndex/EmbeddingService, return a CallToolResult.
- *
- * NOTE: the MCP Java SDK's exact API (McpServerFeatures.SyncToolSpecification
- * constructor shape, McpSchema.Tool constructor, CallToolResult content type)
- * has shifted across SDK releases. If this doesn't compile against the
- * version pinned in pom.xml, check the SDK's current javadoc/examples --
- * the logic in each handler below will still apply, only the wiring may
- * need small adjustments.
- */
 public class MemoryTools {
 
     private final MetadataStore metadataStore;

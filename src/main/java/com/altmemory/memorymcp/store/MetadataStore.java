@@ -11,9 +11,7 @@ import java.util.List;
 /**
  * Source of truth for raw memory content + metadata. Lucene holds the
  * vector index for semantic search, but this SQLite DB is what get_recent /
- * delete_memory ultimately read and write. Rebuilding the Lucene index from
- * this table is always possible if the index gets corrupted or its schema
- * changes.
+ * delete_memory ultimately read and write.
  */
 public class MetadataStore implements AutoCloseable {
 

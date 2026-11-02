@@ -79,24 +79,6 @@ This project routes all logging to stderr via `slf4j-simple`
 (`src/main/resources/simplelogger.properties`) — keep it that way if you add
 new dependencies that log by default.
 
-## Known gaps / roadmap
-
-- **No hybrid search yet.** `semantic_search` is pure vector similarity;
-  combining it with tag/keyword filtering (Lucene supports this natively —
-  a `BooleanQuery` wrapping the `KnnFloatVectorQuery`) would improve
-  precision for narrow queries.
-- **No eviction/TTL.** Memories accumulate indefinitely. A staleness policy
-  (e.g. decay old, low-relevance entries) would keep recall quality high as
-  the store grows.
-- **Single embedding provider wired in.** `EmbeddingService` is an
-  interface specifically so a local/offline model can replace Gemini
-  without touching the rest of the codebase.
-- **No auth/multi-user isolation.** Fine for a single developer's local
-  setup; would need per-user namespacing to be shared across a team.
-- **Index rebuild tooling.** `MetadataStore.getAll()` returns everything
-  needed to rebuild the Lucene index from scratch, but there's no CLI
-  command wired up for it yet.
-
 ## Project layout
 
 ```

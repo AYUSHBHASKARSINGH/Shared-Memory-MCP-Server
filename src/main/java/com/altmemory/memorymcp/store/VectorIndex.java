@@ -27,17 +27,6 @@ import java.util.List;
  * This class only ever stores the id + vector -- the actual content lives in
  * MetadataStore (SQLite). Keeping them separate means the index can be
  * dropped and rebuilt from SQLite at any time without data loss.
- *
- * IMPORTANT: Lucene allows only one IndexWriter open on a directory at a
- * time (enforced via write.lock). Because this server runs as a *separate
- * process per client* (Claude Desktop spawns one, Cursor spawns another,
- * both pointed at the same on-disk index), an IndexWriter held open for the
- * whole process lifetime would let whichever process starts first lock the
- * other out permanently. So writers here are opened only for the instant a
- * write happens, then closed immediately -- the lock is held for
- * milliseconds, not the life of the process. Reads never need the writer at
- * all (DirectoryReader.open() doesn't require exclusive access), so search
- * is unaffected by any of this.
  */
 public class VectorIndex implements AutoCloseable {
 
